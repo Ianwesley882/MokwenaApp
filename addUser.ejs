@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add User - MokwenaApp</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('menu'); %>
+
+    <h2>Add New User</h2>
+
+    <% if (message) { %>
+        <p style="color: green;"><%= message %></p>
+    <% } %>
+    <% if (error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <form method="POST" action="/add-user">
+        <label>Surname:</label><br>
+        <input type="text" name="surname"><br><br>
+
+        <label>First Name:</label><br>
+        <input type="text" name="firstName"><br><br>
+
+        <label>Last Name:</label><br>
+        <input type="text" name="lastName"><br><br>
+
+        <label>Password:</label><br>
+        <input type="text" name="password"><br><br>
+
+        <label>Date of Birth:</label><br>
+        <input type="date" name="dob"><br><br>
+
+        <label>Province:</label><br>
+        <select name="province">
+            <option value="">-- Select Province --</option>
+            <option>Gauteng</option>
+            <option>KwaZulu-Natal</option>
+            <option>Western Cape</option>
+            <option>Eastern Cape</option>
+            <option>Free State</option>
+            <option>Limpopo</option>
+            <option>Mpumalanga</option>
+            <option>North West</option>
+            <option>Northern Cape</option>
+        </select><br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female<br><br>
+
+        <label>Facilitator:</label><br>
+        <input type="radio" name="facilitator" value="1"> Yes
+        <input type="radio" name="facilitator" value="0"> No<br><br>
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

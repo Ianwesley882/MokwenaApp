@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2>Login</h2>
+    <form method="POST" action="/login">
+        <label>Surname:</label><br>
+        <input type="text" name="surname"><br><br>
+        <label>Password:</label><br>
+        <input type="password" name="password"><br><br>
+        <button type="submit">Log In</button>
+        <p style="color:red;"><%= error %></p>
+    </form>
+</body>
+</html>
+

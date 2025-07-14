@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('menu'); %>
+
+    <h2>Edit User</h2>
+
+    <% if (message) { %>
+        <p style="color: green;"><%= message %></p>
+    <% } %>
+    <% if (error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <form method="POST" action="/edit-user/<%= user.UserDetailsID %>">
+        <label>First Name:</label><br>
+        <input type="text" name="firstName" value="<%= user.FirstName %>"><br><br>
+
+        <label>Last Name:</label><br>
+        <input type="text" name="lastName" value="<%= user.LastName %>"><br><br>
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

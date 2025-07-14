@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Users - MokwenaApp</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('menu'); %>
+
+    <h2>Manage Users</h2>
+
+    <% if (message) { %>
+        <p style="color: green;"><%= message %></p>
+    <% } %>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <tr>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Province</th>
+            <th>Gender</th>
+            <th>Facilitator</th>
+        </tr>
+        <% users.forEach(user => { %>
+        <tr>
+            <td><a href="/edit-user/<%= user.UserDetailsID %>">Edit</a></td>
+            <td><a href="/delete-user/<%= user.UserDetailsID %>">Delete</a></td>
+            <td><%= user.FirstName %> <%= user.LastName %></td>
+            <td><%= user.DateOfBirth.toISOString().slice(0,10) %></td>
+            <td><%= user.Province %></td>
+            <td><%= user.Gender %></td>
+            <td><%= user.Facilitator && user.Facilitator[0] === 1 ? 'Yes' : 'No' %></td>
+        </tr>
+        <% }) %>
+    </table>
+
+    <br>
+    <form action="/export-word" method="POST">
+        <button type="submit">Export to MS Word</button>
+    </form>
+</body>
+</html>
